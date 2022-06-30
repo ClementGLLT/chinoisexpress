@@ -71,9 +71,11 @@ router.post('/addjourney', async function(req,res,next){
 console.log('bdd',bddJourney);
   if(bddJourney){
     var newJourney = new journeyModel({
-      departure: req.body.villeDepart,
-      arrival: req.body.villeArrivee,
-      date: req.body.calendar
+      departure: bddJourney.departure,
+      arrival: bddJourney.arrival,
+      date: bddJourney.date,
+      time: bddJourney.departureTime,
+      price: bddJourney.price
 
      
      });
