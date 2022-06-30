@@ -70,6 +70,9 @@ router.get('/save', async function(req, res, next) {
     }
 
   }
+  console.log("test2");
+  console.log("test7")
+
   res.render('index', { title: 'Express' });
 });
 
