@@ -61,31 +61,31 @@ router.get('/homepage', function(req, res, next) {
 
   res.render('homepage', {title: 'Express'});
 });
-router.post('/addjourney', async function(req, res, next) {
-  var bddJourneys = await journeyModel.find();
-for (let i = 0; i < bddJourneys.length; i++) {
-  
-  
+router.post('/addjourney', async function(req,res,next){
 
-  if(bddJourneys[i].departure == req.body.villeDepart.toLowerCase() && bddJourneys[i].arrival == req.body.villeArrivee && bddJourneys[i].date == req.body.calendar){
-    res.redirect('/tickets')
+  var bddJourney = await journeyModel.findOne({
+    departure: req.body.villeDepart,
+    arrival: req.body.villeArrivee,
+    date: req.body.calendar
+  })
+console.log('bdd',bddJourney);
+  if(bddJourney){
     var newJourney = new journeyModel({
-      departure: req.body.villeDepart.toLowerCase(),
+      departure: req.body.villeDepart,
       arrival: req.body.villeArrivee,
       date: req.body.calendar
 
      
      });
-console.log("input", newJourney);
+     await newJourney.save();
+    res.render('tickets', newJourney)
+  } else {
+    res.redirect('/notfound')
+  }
 
-    await newJourney.save();
-  }}
+  
+})
 
-  // journeyList = await journeyModel.find();
-
-
-  res.render('homepage', {title: 'Express'});
-});
 
 // Remplissage de la base de donnée, une fois suffit
 router.get('/save', async function(req, res, next) {
