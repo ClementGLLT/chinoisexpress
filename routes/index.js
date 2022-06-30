@@ -41,10 +41,37 @@ var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
 router.get('/', function(req, res, next) {
   res.render('login', { title: 'Express' });
 });
+router.get('/notfound', function(req, res, next) {
+  res.render('notrain', { title: 'Express' });
+});
 
 router.get('/homepage', function(req, res, next) {
-  res.render('homepage', { title: 'Express' });
+  // if(req.session.user == null){
+  //   res.redirect('/')
+  // } else {
+
+  res.render('homepage', {title: 'Express'});
 });
+router.post('/addjourney', async function(req, res, next) {
+  var alreadyExist = await journeyModel.findOne({ departure: req.body.villeDepart.toLowerCase(), arrival: req.body.villeArrivee.toLowerCase() });
+
+  if(alreadyExist ){
+    var newJourney = new journeyModel({
+      departure: req.body.villeDepart.toLowerCase(),
+      arrival: req.body.villeArrivee
+
+     
+    });
+
+    await newJourney.save();
+  }
+
+  // journeyList = await journeyModel.find();
+
+
+  res.render('homepage', {title: 'Express'});
+});
+
 // Remplissage de la base de donnée, une fois suffit
 router.get('/save', async function(req, res, next) {
 
