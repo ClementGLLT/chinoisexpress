@@ -44,6 +44,15 @@ router.get('/', function(req, res, next) {
 router.get('/notfound', function(req, res, next) {
   res.render('notrain', { title: 'Express' });
 });
+router.get('/confirm', function(req, res, next) {
+  res.render('tickets', { title: 'Express' });
+});
+router.get('/historic', function(req, res, next) {
+  res.render('historic', { title: 'Express' });
+});
+router.get('/', function(req, res, next) {
+  res.render('', { title: 'Express' });
+});
 
 router.get('/homepage', function(req, res, next) {
   // if(req.session.user == null){
@@ -53,18 +62,24 @@ router.get('/homepage', function(req, res, next) {
   res.render('homepage', {title: 'Express'});
 });
 router.post('/addjourney', async function(req, res, next) {
-  var alreadyExist = await journeyModel.findOne({ departure: req.body.villeDepart.toLowerCase(), arrival: req.body.villeArrivee.toLowerCase() });
+  var bddJourneys = await journeyModel.find();
+for (let i = 0; i < bddJourneys.length; i++) {
+  
+  
 
-  if(alreadyExist ){
+  if(bddJourneys[i].departure == req.body.villeDepart.toLowerCase() && bddJourneys[i].arrival == req.body.villeArrivee && bddJourneys[i].date == req.body.calendar){
+    res.redirect('/tickets')
     var newJourney = new journeyModel({
       departure: req.body.villeDepart.toLowerCase(),
-      arrival: req.body.villeArrivee
+      arrival: req.body.villeArrivee,
+      date: req.body.calendar
 
      
-    });
+     });
+console.log("input", newJourney);
 
     await newJourney.save();
-  }
+  }}
 
   // journeyList = await journeyModel.find();
 
