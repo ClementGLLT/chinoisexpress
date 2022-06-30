@@ -1,12 +1,48 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  
 }
 
-a {
-  color: #00B7FF;
+.margin-bottom {
+  margin-bottom: 100px;
 }
+
+.dividergold {
+  background: linear-gradient(to right, #e9d362, #333333); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 2px;
+  width: 100%;
+
+}
+
 
 .typo{
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: black;
 }
+
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.inherit {
+  padding: 0;
+  margin: 0;
+}
+
+h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: rgb(172, 0, 0);
+  margin: 32px;
+}
+
+.spaceMd {
+  margin: 16px 16px;
+}
+
