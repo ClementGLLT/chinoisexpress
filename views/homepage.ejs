@@ -18,7 +18,7 @@
 </head>
 <%- include('navbar'); %>
 
-<body>
+<body class="background">
   
 
 
@@ -28,22 +28,22 @@
     <h4 class="titleForm"></h4>
 
     
-      <form action="/addjourney" method="post" class="flexrow" >
-        <div class="form-group col-2">
+      <form action="/addjourney" method="post" class="flexcolumn" >
+        <div class="form-group inputspace">
           <label for="exampleInputUsername">Provenance :</label>
-          <input type="text" class="form-control" placeholder="From : ..." name="villeDepart">
+          <input type="text" class="form-control inputcustom" placeholder="From : ..." name="villeDepart">
         </div>
-        <div class="form-group col-2">
+        <div class="form-group inputspace">
           <label for="exampleInputEmail1">Destination :</label>
-          <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="To: ..." name="villeArrivee">
+          <input type="text" class="form-control inputcustom" aria-describedby="emailHelp" placeholder="To: ..." name="villeArrivee">
         </div>
-        <div class="form-group col-2">      
+        <div class="form-group inputspace">      
           <label for="start">Start date:</label>
         <input type="date" id="start" name="calendar"
                value="2018-07-22"
-               min="2018-01-01" max="2018-12-31">
+               min="2018-01-01" max="2018-12-31" class="inputcustom">
         </div>
-        <button type="submit" class="btn btn-info">Go</button>
+        <button type="submit" class="btn btn-info buttoncustomprimary">Go</button>
       </form>
 
 

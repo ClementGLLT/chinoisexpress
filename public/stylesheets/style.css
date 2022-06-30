@@ -1,5 +1,14 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100vh;
+
+}
+p {
+  margin: 0px;
+    color: #333333;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
   
 }
 
@@ -40,6 +49,19 @@ body {
   justify-content: center;
 }
 
+.tile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border: #e9d362 2px solid;
+  border-radius: 16px;
+  height: 100px;
+  box-shadow: 10px 5px 30px rgba(0, 0, 0, 0.151);
+  background-color: rgba(255, 255, 255, 0.786);  
+}
+
 .inherit {
   padding: 0;
   margin: 0;
@@ -47,31 +69,86 @@ body {
 
 h2 {
   font-family: 'Open Sans', sans-serif;
-  font-size: 28px;
-  font-weight: 500;
-  color: #333333;
+  font-size: 24px;
+  font-weight: 900;
+  color: #a18400;
   margin: 32px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .spaceMd {
   margin: 16px 16px;
 }
 
+.buttoncustomprimary {
+  color: #ffffff;
+  border-color: #e9d362;
+  background: linear-gradient(to right, #e9d362, #807e44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding-left: 64px;
+  padding-right: 64px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 28px;
+  border-radius: 16px;
+
+}
+
 
 .buttoncustom {
   color: #333333;
   border-color: #e9d362;
-  background-color: inherit;
+  background-color: white;
   padding-left: 24px;
   padding-right: 24px;
 }
 
+.buttoncustomsmall {
+  color: #333333;
+  border-color: #e9d362;
+  background-color: inherit;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-left: 16px;
+  
+}
+
 .background {
+  background-color: #d5e3e5;
     background-image: url("/images/pngegg.png");
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
-    width: 100vw;
-    height: auto;
+    background-position: bottom;
+    width: 100%;
   z-index: 1;
+}
+
+
+.mention {
+  color: #7c7c7c;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.formArea {
+  margin-top: 100px;
+}
+
+.inputcustom {
+  color: #333333;
+  border-color: #e9d362;
+  background-color: white;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-radius: 8px;
+}
+
+.inputspace {
+  margin: 24px;
 }
