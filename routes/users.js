@@ -1,16 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var userModel = require('../models/users')
-/* Get login page*/
-router.get('/login', function(req, res) {
-
-  res.render('login');
-});
 
 router.post('/sign-up', async function(req,res,next){
 
   var searchUser = await userModel.findOne({
+   
     email: req.body.emailFromFront
+    
   })
   
   if(!searchUser){
@@ -31,7 +28,7 @@ router.post('/sign-up', async function(req,res,next){
   
     res.redirect('/homepage')
   } else {
-    res.redirect('/login')
+    res.redirect('/')
   }
   
 })
