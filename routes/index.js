@@ -11,7 +11,7 @@ var options = {
  };
 
 // --------------------- BDD -----------------------------------------------------
-mongoose.connect('mongodb+srv://XXXXXXXX:*********@XXXXXXXX-0hsfc.mongodb.net/Ticketac?retryWrites=true',
+mongoose.connect('mongodb+srv://Yali:lacapsule1@cluster0.v7o1gtf.mongodb.net/Ticketac?retryWrites=true&w=majority',
    options,
    function(err) {
     if (err) {
@@ -70,8 +70,7 @@ router.get('/save', async function(req, res, next) {
     }
 
   }
-  console.log("test2");
-  console.log("test7")
+  
 
   res.render('index', { title: 'Express' });
 });
