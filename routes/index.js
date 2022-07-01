@@ -70,13 +70,16 @@ router.post('/addjourney', async function(req,res,next){
   var journeyThatMatch = await journeyModel.find({
     departure : req.body.villeDepart,
     arrival : req.body.villeArrivee,
+    date : req.body.calendar
   })
+  console.log("journeyThatMatch",journeyThatMatch);
 
-  if (journeyThatMatch != null){
+  if (journeyThatMatch.length !== 0){
     res.render('tickets', {journeyThatMatch})
-  } 
-
-  
+    console.log("journeyThatMatch",journeyThatMatch);
+  } else {
+    res.redirect('/notfound')
+  }
 
 });
 
