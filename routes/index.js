@@ -53,6 +53,9 @@ router.get('/historic', function(req, res, next) {
 router.get('/', function(req, res, next) {
   res.render('', { title: 'Express' });
 });
+router.get('/ticketconfirm', function(req, res, next) {
+  res.render('ticketconfirm', { title: 'Express', journeyThatMatch: req.session.journeyThatMatch });
+});
 
 router.get('/homepage', function(req, res, next) {
   // if(req.session.user == null){
@@ -65,7 +68,7 @@ router.get('/homepage', function(req, res, next) {
 
 router.post('/addjourney', async function(req,res,next){
 
-  var journeyList = [];
+
 
   var journeyThatMatch = await journeyModel.find({
     departure : req.body.villeDepart,
@@ -75,7 +78,8 @@ router.post('/addjourney', async function(req,res,next){
   })
   console.log('bdd', journeyThatMatch)
   if (journeyThatMatch.length !==0){ 
-    res.render('tickets', {journeyThatMatch})
+    req.session.journeyThatMatch = journeyThatMatch
+    res.render('tickets', {journeyThatMatch: req.session.journeyThatMatch})
   } else {
     res.redirect('/notfound')}
 
