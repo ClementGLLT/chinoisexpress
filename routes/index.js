@@ -71,15 +71,14 @@ router.post('/addjourney', async function(req,res,next){
     departure : req.body.villeDepart,
     arrival : req.body.villeArrivee,
     date : req.body.calendar
+   
   })
-  console.log("journeyThatMatch",journeyThatMatch);
-
-  if (journeyThatMatch.length !== 0){
+  console.log('bdd', journeyThatMatch)
+  if (journeyThatMatch.length !==0){ 
     res.render('tickets', {journeyThatMatch})
-    console.log("journeyThatMatch",journeyThatMatch);
   } else {
-    res.redirect('/notfound')
-  }
+    res.redirect('/notfound')}
+
 
 });
 

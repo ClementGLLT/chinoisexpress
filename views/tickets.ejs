@@ -20,22 +20,22 @@
     <%- include('navbar'); %>
 
     <h2 class="col-10 offset-1 col-sm-8 offset-sm-2">
-        Ticket available on 
+        Ticket available on <%=journeyThatMatch[0].date.toLocaleDateString()%>
       </h2>
-
+      <% for (var i=0; i<journeyThatMatch.length; i++){%>
     
        
             <div class="tile col-10 offset-1 col-sm-8 offset-sm-2 " >
-                <p class="bold"> Ville de départ / ville d'arrivée</p>
+                <p class="bold">  <%=journeyThatMatch[i].departure%> /  <%=journeyThatMatch[i].arrival%></p>
                 
-                <p class="mention">Train departure at: XX/XX/XX</p>
+                <p class="mention">Train departure at: <%=journeyThatMatch[i].departureTime%></p>
 
                 <div class="flexrow">
-                <p>Price : XX€</p>                     
+                <p>Price : <%=journeyThatMatch[i].price%>€</p>                     
                 <a href="#"> <button type="submit" class="btn btn-info inherit buttoncustomnavbar ">Go</button></i></button></a>
                 </div>
                 
             </div>
-
+            <%}%>
 </body>
 </html>
