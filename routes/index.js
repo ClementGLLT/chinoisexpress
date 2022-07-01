@@ -61,32 +61,27 @@ router.get('/homepage', function(req, res, next) {
 
   res.render('homepage', {title: 'Express'});
 });
+
+
 router.post('/addjourney', async function(req,res,next){
 
-  var bddJourney = await journeyModel.findOne({
-    departure: req.body.villeDepart,
-    arrival: req.body.villeArrivee,
-    date: req.body.calendar
-  })
-console.log('bdd',bddJourney);
-  if(bddJourney){
-    var newJourney = new journeyModel({
-      departure: bddJourney.departure,
-      arrival: bddJourney.arrival,
-      date: bddJourney.date,
-      time: bddJourney.departureTime,
-      price: bddJourney.price
+  var journeyList = [];
 
-     
-     });
-     await newJourney.save();
-    res.render('tickets', newJourney)
+  var journeyThatMatch = await journeyModel.find({
+    departure : req.body.villeDepart,
+    arrival : req.body.villeArrivee,
+  })
+
+  if (journeyThatMatch != null){
+    res.render('tickets', {journeyThatMatch})
   } else {
-    res.redirect('/notfound')
-  }
+    res.redirect('/notfound')}
 
   
-})
+
+});
+
+     
 
 
 // Remplissage de la base de donnée, une fois suffit
