@@ -3,12 +3,31 @@ body {
   height: 100vh;
 
 }
+
+label {
+  color: #FFF;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  background-color: #97281C;
+  border: 5px solid #000000; 
+  outline: 5px solid #D8C5AA;
+  border-radius: 4px;
+  line-height: 32px;
+  padding: 8px;
+
+  
+
+ 
+}
 p {
   margin: 0px;
-    color: #333333;
+    color: #000000;
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 500;
+    text-transform: uppercase;
+
   
 }
 
@@ -21,8 +40,8 @@ p {
 }
 
 .dividergold {
-  background: linear-gradient(to right, #e9d362, #333333); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  height: 2px;
+  background-color: #97281C;
+  height: 10px;
   width: 100%;
 
 }
@@ -55,11 +74,11 @@ p {
   align-items: center;
   justify-content: space-between;
   padding: 16px;
-  border: #e9d362 2px solid;
+  border: 5px solid #000000; 
+  outline: 5px solid #D8C5AA;
   border-radius: 16px;
   height: 100px;
-  box-shadow: 10px 5px 30px rgba(0, 0, 0, 0.151);
-  background-color: rgba(255, 255, 255, 0.786);  
+  background-color: #fff;  
 }
 
 .inherit {
@@ -68,23 +87,46 @@ p {
 }
 
 h2 {
+  color: #FFF;
   font-family: 'Open Sans', sans-serif;
   font-size: 24px;
   font-weight: 900;
-  color: #a18400;
-  margin: 32px;
+  background-color: #97281C;
+  border-radius: 4px;
+  line-height: 32px;
+  padding: 8px;
+  margin: 32px 0;
   text-align: center;
   text-transform: uppercase;
 }
+
+h4 {
+  color: rgb(0, 0, 0);
+  font-family: 'Open Sans', sans-serif;
+  border: 5px solid #000000; 
+  outline: 5px solid #D8C5AA;
+  font-size: 20px;
+  font-weight: 900;
+  background-color:#D8C5AA;
+  border-radius: 4px;
+  line-height: 32px;
+  padding: 8px;
+  margin: 32px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 
 .spaceMd {
   margin: 16px 16px;
 }
 
 .buttoncustomprimary {
-  color: #ffffff;
-  border-color: #e9d362;
-  background: linear-gradient(to right, #e9d362, #807e44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #000000;
+  border: 5px solid #000000; 
+  outline: 5px solid #D8C5AA;
+  background-color: white;
+
   padding-left: 64px;
   padding-right: 64px;
   padding-top: 8px;
@@ -97,15 +139,20 @@ h2 {
 
 .buttoncustom {
   color: #333333;
-  border-color: #e9d362;
+  border: 5px solid #000000; 
+  outline: 5px solid #D8C5AA;
   background-color: white;
   padding-left: 24px;
   padding-right: 24px;
+  font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
 }
 
 .buttoncustomsmall {
-  color: #333333;
-  border-color: #e9d362;
+  color: #000000;
+  border: 2px solid #000000; 
+  outline: 5px solid #D8C5AA;
   background-color: inherit;
   padding-left: 8px;
   padding-right: 8px;
@@ -115,9 +162,9 @@ h2 {
 
 .background {
   background-color: #d5e3e5;
-    background-image: url("/images/pngegg.png");
+    background-image: url("/images/background.jpeg");
     background-size: contain;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: bottom;
     width: 100%;
   z-index: 1;
@@ -125,9 +172,10 @@ h2 {
 
 
 .mention {
-  color: #7c7c7c;
+  color: #000000;
   font-size: 14px;
   font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
 }
 
 .bold {
@@ -135,20 +183,45 @@ h2 {
 }
 
 .formArea {
-  margin-top: 100px;
+  margin-top: 32px;
+  
 }
 
 .inputcustom {
   color: #333333;
-  border-color: #e9d362;
+  border: 5px solid #000000; 
+  outline: 5px solid #D8C5AA;
   background-color: white;
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 16px;
   padding-bottom: 16px;
   border-radius: 8px;
+  height: 60px;
+  
 }
 
 .inputspace {
   margin: 24px;
+}
+
+.navbarcolor {
+ background-color: #ffffff; 
+}
+
+
+table {
+  background-color: #FFF;
+  border: 5px solid #000000; 
+  outline: 5px solid #D8C5AA;
+}
+
+.buttoncustomnavbar {
+  color:#97281C;
+  border: 2px solid #97281C; 
+  background-color: inherit;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-left: 16px;
+  
 }
