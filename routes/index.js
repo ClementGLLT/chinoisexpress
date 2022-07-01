@@ -70,9 +70,11 @@ router.post('/addjourney', async function(req,res,next){
   var journeyThatMatch = await journeyModel.find({
     departure : req.body.villeDepart,
     arrival : req.body.villeArrivee,
+    date : req.body.calendar
+   
   })
-
-  if (journeyThatMatch != null){
+  console.log('bdd', journeyThatMatch)
+  if (journeyThatMatch.length !==0){ 
     res.render('tickets', {journeyThatMatch})
   } else {
     res.redirect('/notfound')}
