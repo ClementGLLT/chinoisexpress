@@ -3,6 +3,9 @@ var router = express.Router();
 
 const mongoose = require('mongoose');
 
+var usersModel = require('../models/users')
+
+
 // useNewUrlParser ;)
 var options = {
   connectTimeoutMS: 5000,
@@ -53,32 +56,68 @@ router.get('/historic', function(req, res, next) {
 router.get('/', function(req, res, next) {
   res.render('', { title: 'Express' });
 });
-router.get('/ticketconfirm', function(req, res, next) {
-  res.render('ticketconfirm', { title: 'Express', journeyThatMatch: req.session.journeyThatMatch });
+
+
+
+
+router.get('/ticketconfirm',async function(req, res, next) {
+
+  var ticket = await journeyModel.findById( req.query.ticket );
+
+  console.log("ticket",ticket);
+
+
+  //var user  = await require('./models/users');
+
+  var user = await usersModel.findById( req.session.user.id );
+
+
+  
+  user.basket.push(
+    {
+      departure: ticket.departure,
+      arrival: ticket.arrival,
+      date: ticket.date,
+      departureTime: ticket.date,
+      price: ticket.price,})
+
+      console.log("user",user);
+
+
+
+var ticketSaved = await user.save();
+
+console.log(ticketSaved);
+
+      console.log("user.basket",user.basket);
+
+
+  res.render('ticketconfirm', { title: 'Express', ticket: user.basket});
 });
+
+
+
 
 router.get('/homepage', function(req, res, next) {
-  // if(req.session.user == null){
-  //   res.redirect('/')
-  // } else {
+  if(req.session.user == null){
+    res.redirect('/')
+  } else {
 
   res.render('homepage', {title: 'Express'});
-});
+}});
 
 
 router.post('/addjourney', async function(req,res,next){
-
-
 
   var journeyThatMatch = await journeyModel.find({
     departure : req.body.villeDepart,
     arrival : req.body.villeArrivee,
     date : req.body.calendar
-   
   })
-  console.log('bdd', journeyThatMatch)
+
   if (journeyThatMatch.length !==0){ 
     req.session.journeyThatMatch = journeyThatMatch
+
     res.render('tickets', {journeyThatMatch: req.session.journeyThatMatch})
   } else {
     res.redirect('/notfound')}

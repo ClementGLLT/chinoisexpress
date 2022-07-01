@@ -19,6 +19,7 @@
     <%- include('navbar'); %>
     <h4 class="titleForm col-10 offset-1"> Un petit voyage en vu ? </h4>
 
+
     <table class="table col-10 offset-1">
         <thead>
           <tr>
@@ -30,27 +31,36 @@
           </tr>
         </thead>
         <tbody>
-          <% console.log(journeyThatMatch); for (var i=0; i<journeyThatMatch.length; i++){%>
-          <tr>
-            <th scope="row">1</th>
-            <td><%=journeyThatMatch[i].departure%> /  <%=journeyThatMatch[i].arrival%></td>
-            <td><%=journeyThatMatch[0].date.toLocaleDateString()%></td>
-            <td><%=journeyThatMatch[i].departureTime%></td>
-            <td><%=journeyThatMatch[i].price%>€</td>
-          </tr>
+          <% for ( var i=0; i<ticket.length; i++) {%>
+
+            <tr>
+              <th scope="row">1</th>
+              <td><%=ticket[i].departure%> /  <%=ticket[i].arrival%></td>
+              <td><%=ticket[i].date.toLocaleDateString()%></td>
+              <td><%=ticket[i].departureTime%></td>
+              <td><%=ticket[i].price%>€</td>
+            </tr>
+
           <%}%>
+          
+          <% 
+          var totalPrice = 0;
+          for (let i = 0; i < ticket.length; i++) {
+            totalPrice = totalPrice + ticket[i].price;
+          }%> 
+          
           <tfoot>
             <tr>
               <th scope="col">Total</th>
               <th scope="col"></th>
               <th scope="col"></th>
               <th scope="col"></th>
-              <th scope="col">XX€</th>
+              <th scope="col"><%=totalPrice%>€</th>
             </tfoot>
           </thead>
         </tbody>
       </table>
-      <button type="submit" class="btn btn-info buttoncustomprimary col-6 offset-3">Confirm</button>
+      <a href=""> <button type="submit" class="btn btn-info buttoncustomprimary col-6 offset-3">Confirm</button> </a>
 
     
 </body>

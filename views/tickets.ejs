@@ -32,7 +32,7 @@
 
                 <div class="flexrow">
                 <p>Price : <%=journeyThatMatch[i].price%>€</p>                     
-                <a href="/ticketconfirm?departure=<%=journeyThatMatch[i].departure%>&arrival=<%=journeyThatMatch[i].arrival%>&date=<%=journeyThatMatch[0].date.toLocaleDateString()%>&departureTime=<%=journeyThatMatch[i].departureTime%>&price=<%=journeyThatMatch[i].price%>"> <button type="submit" class="btn btn-info inherit buttoncustomnavbar ">Go</button></i></button></a>
+                <a href="/ticketconfirm?ticket=<%=journeyThatMatch[i].id%>"> <button type="submit" class="btn btn-info inherit buttoncustomnavbar ">Go</button></i></button></a>
                 </div>
                 
             </div>

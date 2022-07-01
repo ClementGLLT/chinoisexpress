@@ -43,7 +43,7 @@ router.post('/sign-in', async function(req,res,next){
   if(searchUser!= null){
     req.session.user = {
       name: searchUser.username,
-      id: searchUser._id
+      id: searchUser._id,
     }
     res.redirect('/homepage')
   } else {
