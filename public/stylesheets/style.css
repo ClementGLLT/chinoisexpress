@@ -74,6 +74,7 @@ p {
   align-items: center;
   justify-content: space-between;
   padding: 16px;
+  margin-bottom: 24px;
   border: 5px solid #000000; 
   outline: 5px solid #D8C5AA;
   border-radius: 16px;

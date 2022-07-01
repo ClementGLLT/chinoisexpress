@@ -51,7 +51,7 @@ router.get('/confirm', function(req, res, next) {
   res.render('tickets', { title: 'Express' });
 });
 router.get('/historic', function(req, res, next) {
-  res.render('historic', { title: 'Express' });
+  res.redirect('/historic', { title: 'Express' });
 });
 router.get('/', function(req, res, next) {
   res.render('', { title: 'Express' });
